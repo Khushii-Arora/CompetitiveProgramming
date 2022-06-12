@@ -1,0 +1,32 @@
+/* Read input from STDIN. Print your output to STDOUT*/
+#include<stdio.h>
+#include <stdlib.h>
+
+int cmpfunc (const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+int main(int argc, char *a[])
+{int testcases;
+	 scanf("%d",&testcases);
+
+	 while(testcases>0){
+	     int tobuy,giftavailable,giftvalue[100000],n;
+		 long int amount=0;
+		 scanf("%d",&tobuy);
+		 scanf("%d",&giftavailable);
+		 	for(n = 0 ; n < giftavailable; n++ ) {
+      		scanf("%d",&giftvalue[n]);
+   			}
+			  qsort(giftvalue, giftavailable, sizeof(int), cmpfunc);
+
+		for(n = 0 ; n <tobuy; n++ ) {
+      		amount+=giftvalue[n];
+   			}
+		printf("%d\n",amount);
+
+	 --testcases;
+	 }
+	 
+
+}
